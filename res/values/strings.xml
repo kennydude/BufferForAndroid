@@ -2,4 +2,6 @@
 <resources>
     <string name="hello">Hello World, Buffer!</string>
     <string name="app_name">Android Buffer</string>
+	<string name="quit_shortcut">q</string>
+	<string name="quit_label">Quit</string>
 </resources>
