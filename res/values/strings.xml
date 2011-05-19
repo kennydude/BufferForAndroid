@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, Buffer!</string>
+    <string name="hello">This will become the Buffer app for Android.</string>
     <string name="app_name">Android Buffer</string>
 	<string name="quit_shortcut">q</string>
 	<string name="quit_label">Quit</string>
