@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.util.Log;
 
 public class Add extends Activity implements OnClickListener {
@@ -23,7 +24,9 @@ public class Add extends Activity implements OnClickListener {
 	public void onClick(View v) {
 		switch(v.getId()) {
 		case R.id.add_button:
-			Log.d(TAG, "add button pressed");
+			EditText tweetTextView = (EditText) this.findViewById(R.id.tweet_text);
+			String tweetText = tweetTextView.getText().toString();
+			Log.d(TAG, tweetText);
 			break;
 		}
 	}
