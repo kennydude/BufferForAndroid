@@ -27,6 +27,7 @@ public class Add extends Activity implements OnClickListener {
 			EditText tweetTextView = (EditText) this.findViewById(R.id.tweet_text);
 			String tweetText = tweetTextView.getText().toString();
 			Log.d(TAG, tweetText);
+			this.finish();
 			break;
 		}
 	}
