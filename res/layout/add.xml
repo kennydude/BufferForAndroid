@@ -6,10 +6,11 @@
 	
 	<EditText
 		android:id="@+id/tweet_text"
-		android:layout_height="wrap_content"
 		android:padding="10dip"
 		android:textSize="18sp"
 		android:layout_width="fill_parent"
+		android:layout_height="180dip"
+		android:gravity="top"
 		/>
 
 </LinearLayout>
