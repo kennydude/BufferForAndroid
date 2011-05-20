@@ -3,6 +3,7 @@
     <string name="hello">This will become the Buffer app for Android.</string>
     <string name="app_name">Buffer</string>
     <string name="add_title">Add a tweet to your Buffer</string>
+	<string name="add_button_text">Add to Buffer</string>
 	<string name="add_shortcut">a</string>
 	<string name="add_label">Add</string>
 	<string name="quit_shortcut">q</string>
