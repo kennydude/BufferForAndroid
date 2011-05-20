@@ -1,5 +1,6 @@
 package org.buffer.android;
 
+import android.content.Intent;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,6 +26,10 @@ public class Buffer extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	switch(item.getItemId()) {
+    	case R.id.add:
+    		Intent i = new Intent(this, Add.class);
+    		startActivity(i);
+    		break;
     	case R.id.quit:
     		finish();
     		break;

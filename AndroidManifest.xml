@@ -12,6 +12,10 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".Add"
+        	android:label="@string/add_title">
+        </activity>
+
     </application>
 
 
