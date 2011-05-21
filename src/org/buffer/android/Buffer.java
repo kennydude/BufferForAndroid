@@ -8,7 +8,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import android.content.Intent;
 import android.app.Activity;
@@ -85,6 +87,15 @@ public class Buffer extends Activity {
 	}
 
 	public void ProcessResponse(String resp) throws IllegalStateException, IOException, JSONException, NoSuchAlgorithmException {
-		display.setText(resp);
+		StringBuilder sb = new StringBuilder();
+		JSONObject mResponseObject = new JSONObject(resp);
+		JSONArray tweets = mResponseObject.getJSONArray("tweets");
+		for(int i = 0; i < tweets.length(); i++) {
+			String content = tweets.getJSONObject(i).getString("content");
+			sb.append(content);
+			sb.append("\n");
+		}
+
+		display.setText(sb.toString());
 	}
 }
