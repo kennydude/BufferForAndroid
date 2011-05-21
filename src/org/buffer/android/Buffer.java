@@ -22,7 +22,7 @@ import android.util.Log;
 public class Buffer extends Activity {
 
 	private static final String TAG = "Buffer";
-	static String url = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=";
+	static String url = "http://192.168.1.64:9292";
 	TextView display;
 
     /** Called when the activity is first created. */
@@ -58,14 +58,14 @@ public class Buffer extends Activity {
 
 	public void UpdateContent() {
 		try {
-			ProcessResponse(SearchRequest("android"));
+			ProcessResponse(GetBufferedTweets());
 		} catch(Exception e) {
 			Log.v(TAG, "Exception: " + e.getMessage());
 		}
 	}
 
-	public String SearchRequest(String searchString) throws MalformedURLException, IOException {
-		String newFeed = url + searchString;
+	public String GetBufferedTweets() throws MalformedURLException, IOException {
+		String newFeed = url + "/tweets.json";
 		StringBuilder response = new StringBuilder();
 		Log.v(TAG, "search url: " + newFeed);
 		URL url = new URL(newFeed);
