@@ -24,7 +24,7 @@ import android.util.Log;
 public class Buffer extends Activity {
 
 	private static final String TAG = "Buffer";
-	static String url = "http://192.168.1.64:9292";
+	static String url = "http://fakebufferapi.heroku.com";
 	TextView display;
 
     /** Called when the activity is first created. */
