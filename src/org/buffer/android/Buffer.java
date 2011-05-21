@@ -1,7 +1,11 @@
 package org.buffer.android;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 
 import org.json.JSONException;
@@ -18,6 +22,7 @@ import android.util.Log;
 public class Buffer extends Activity {
 
 	private static final String TAG = "Buffer";
+	static String url = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=";
 	TextView display;
 
     /** Called when the activity is first created. */
@@ -60,7 +65,23 @@ public class Buffer extends Activity {
 	}
 
 	public String SearchRequest(String searchString) throws MalformedURLException, IOException {
-		return "existing buffered tweets will come here";
+		String newFeed = url + searchString;
+		StringBuilder response = new StringBuilder();
+		Log.v(TAG, "search url: " + newFeed);
+		URL url = new URL(newFeed);
+
+		HttpURLConnection httpcon = (HttpURLConnection) url.openConnection();
+		if(httpcon.getResponseCode() == HttpURLConnection.HTTP_OK) {
+			BufferedReader input = new BufferedReader(
+					new InputStreamReader(httpcon.getInputStream()),
+					8192);
+			String strLine = null;
+			while ((strLine = input.readLine()) != null) {
+				response.append(strLine);
+			}
+			input.close();
+		}
+		return response.toString();
 	}
 
 	public void ProcessResponse(String resp) throws IllegalStateException, IOException, JSONException, NoSuchAlgorithmException {
