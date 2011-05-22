@@ -88,10 +88,13 @@ public class Buffer extends Activity {
 	public void ProcessResponse(String resp) throws IllegalStateException, IOException, JSONException, NoSuchAlgorithmException {
 		StringBuilder sb = new StringBuilder();
 		JSONObject mResponseObject = new JSONObject(resp);
+		JSONObject tweet;
 		JSONArray tweets = mResponseObject.getJSONArray("tweets");
 		for(int i = 0; i < tweets.length(); i++) {
-			String content = tweets.getJSONObject(i).getString("tweet");
-			sb.append(content);
+			tweet = tweets.getJSONObject(i);
+			sb.append(tweet.getString("due"));
+			sb.append("\n");
+			sb.append(tweet.getString("tweet"));
 			sb.append("\n");
 		}
 
