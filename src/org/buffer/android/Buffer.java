@@ -24,7 +24,7 @@ import android.util.Log;
 public class Buffer extends Activity {
 
 	private static final String TAG = "Buffer";
-	static String url = "http://fakebufferapi.heroku.com";
+	static String url = "http://fakebufferapi.heroku.com/1";
 	TextView display;
 
     /** Called when the activity is first created. */
@@ -69,7 +69,6 @@ public class Buffer extends Activity {
 	public String GetBufferedTweets() throws MalformedURLException, IOException {
 		String newFeed = url + "/tweets.json";
 		StringBuilder response = new StringBuilder();
-		Log.v(TAG, "search url: " + newFeed);
 		URL url = new URL(newFeed);
 
 		HttpURLConnection httpcon = (HttpURLConnection) url.openConnection();
@@ -91,7 +90,7 @@ public class Buffer extends Activity {
 		JSONObject mResponseObject = new JSONObject(resp);
 		JSONArray tweets = mResponseObject.getJSONArray("tweets");
 		for(int i = 0; i < tweets.length(); i++) {
-			String content = tweets.getJSONObject(i).getString("content");
+			String content = tweets.getJSONObject(i).getString("tweet");
 			sb.append(content);
 			sb.append("\n");
 		}
