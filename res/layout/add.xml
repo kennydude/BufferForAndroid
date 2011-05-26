@@ -1,36 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<WebView
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="horizontal"
-	android:padding="10dip"
-	>
-	
-	<LinearLayout
-		android:orientation="vertical"
-		android:layout_height="wrap_content"
-		android:layout_width="fill_parent"
-		android:layout_gravity="top"
-		>
-
-			<EditText
-				android:id="@+id/tweet_text"
-				android:padding="10dip"
-				android:textSize="18sp"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:lines="5"
-				android:gravity="top"
-				/>
-
-			<Button
-				android:text="@string/add_button_text"
-				android:id="@+id/add_button"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				/>
-
-		</LinearLayout>
-
-</LinearLayout>
+	android:id="@+id/add_web_view"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	/>
