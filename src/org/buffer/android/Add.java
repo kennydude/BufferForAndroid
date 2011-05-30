@@ -50,8 +50,13 @@ public class Add extends Activity {
 
 	public String convertTextFromTweetDeck(String text) {
 		if (text.contains("Sent via TweetDeck")) {
-			text = text.substring(0, text.indexOf("Original Tweet"));
-			text = "RT @" + text;
+			if (text.contains("Original Tweet")) {
+				text = text.substring(0, text.indexOf("Original Tweet"));
+				text = "RT @" + text;
+			}
+			if (text.contains("Original Facebook Status")) {
+				text = text.substring(0, text.indexOf("Original Facebook Status"));
+			}
 		}
 		return text;
 	}
