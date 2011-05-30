@@ -14,7 +14,8 @@
         </activity>
 
         <activity android:name=".Add"
-        	android:label="@string/add_title">
+        	android:label="@string/add_title"
+        	android:configChanges="orientation">
         </activity>
 
     </application>

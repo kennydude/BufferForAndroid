@@ -1,6 +1,7 @@
 package org.buffer.android;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Window;
 import android.webkit.WebChromeClient;
@@ -27,5 +28,10 @@ public class Add extends Activity {
 		});
 
 		webView.loadUrl("http://bufferapp.com/add");
+	}
+
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
 	}
 }
