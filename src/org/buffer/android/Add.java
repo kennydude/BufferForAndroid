@@ -1,6 +1,7 @@
 package org.buffer.android;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Window;
@@ -27,7 +28,10 @@ public class Add extends Activity {
 			}
 		});
 
-		webView.loadUrl("http://bufferapp.com/add");
+		Intent intent = getIntent();
+		String text = intent.getStringExtra(Intent.EXTRA_TEXT);
+
+		webView.loadUrl("http://bufferapp.com/add?text=" + text);
 	}
 
 	@Override
