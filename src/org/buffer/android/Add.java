@@ -6,15 +6,15 @@ import android.webkit.WebView;
 
 public class Add extends Activity {
 
-	WebView addWebView;
+	WebView webView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.add);
 
-		addWebView = (WebView) findViewById(R.id.add_web_view);
-		addWebView.getSettings().setJavaScriptEnabled(true);
-		addWebView.loadUrl("http://bufferapp.com/add");
+		webView = (WebView) findViewById(R.id.add_web_view);
+		webView.getSettings().setJavaScriptEnabled(true);
+		webView.loadUrl("http://bufferapp.com/add");
 	}
 }
