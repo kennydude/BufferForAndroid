@@ -1,40 +1,36 @@
 package org.buffer.android;
 
-import android.content.Intent;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
 
-public class Buffer extends Activity {
+public class Buffer extends Activity implements OnClickListener {
 
-    /** Called when the activity is first created. */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-    }
+	/** Called when the activity is first created. */
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.main);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-    	super.onCreateOptionsMenu(menu);
-    	MenuInflater inflater = getMenuInflater();
-    	inflater.inflate(R.menu.menu, menu);
-    	return true;
-    }
+		// Click listeners
+		View addButton = this.findViewById(R.id.add_button);
+		addButton.setOnClickListener(this);
+		View quitButton = this.findViewById(R.id.quit_button);
+		quitButton.setOnClickListener(this);
+	}
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-    	switch(item.getItemId()) {
-    	case R.id.add:
-    		Intent i = new Intent(this, Add.class);
-    		startActivity(i);
-    		break;
-    	case R.id.quit:
-    		finish();
-    		break;
-    	}
-    	return false;
-    }
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.add_button:
+			Intent i = new Intent(this, Add.class);
+			startActivity(i);
+			break;
+		case R.id.quit_button:
+			finish();
+			break;
+		}
+	}
 }

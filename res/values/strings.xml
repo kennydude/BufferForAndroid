@@ -4,8 +4,5 @@
     <string name="app_name">Buffer</string>
     <string name="add_title">Add to Buffer</string>
 	<string name="add_button_text">Add to Buffer</string>
-	<string name="add_shortcut">a</string>
-	<string name="add_label">Add</string>
-	<string name="quit_shortcut">q</string>
-	<string name="quit_label">Quit</string>
+	<string name="quit_button_text">Quit</string>
 </resources>

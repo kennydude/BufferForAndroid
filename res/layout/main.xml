@@ -3,10 +3,26 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:padding="30dip"
     >
 	<TextView
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
+	    android:textSize="17sp"
+	    android:layout_marginBottom="25dip"
 	    android:text="@string/hello"
 	    />
+	<Button
+		android:id="@+id/add_button"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/add_button_text"
+		/>
+	<Button
+		android:id="@+id/quit_button"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+	    android:layout_marginTop="25dip"
+		android:text="@string/quit_button_text"
+		/>
 </LinearLayout>
