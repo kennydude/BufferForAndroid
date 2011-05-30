@@ -32,11 +32,26 @@ public class Add extends Activity {
 		String text = intent.getStringExtra(Intent.EXTRA_TEXT);
 		String url = "http://bufferapp.com/add";
 		if (text != null) {
+			// Handle tweetdeck retweeting
 			if (text.contains("Sent via TweetDeck")) {
 				text = text.substring(0, text.indexOf("Original Tweet"));
 				text = "RT @" + text;
 			}
-			url += "?text=" + text;
+
+			// If text is entirely a URL we can pass it to Buffer as such
+			if (text.matches("^http://\\S+$")) {
+				url += "?url=" + text;
+				// In this case, it's likely the page title is shared in the subject!
+				text = intent.getStringExtra(Intent.EXTRA_SUBJECT);
+				if (text != null) {
+					url += "&text=" + text;
+				}
+			}
+
+			// Otherwise, just pass the text we have
+			else {
+				url += "?text=" + text;
+			}
 		}
 		webView.loadUrl(url);
 	}
