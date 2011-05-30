@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">This will become the Buffer app for Android.</string>
+    <string name="hello">Welcome to Buffer for Android. From other applications, press Share, and then choose Add to Buffer. Or click the button below.</string>
     <string name="app_name">Buffer</string>
     <string name="add_title">Add to Buffer</string>
 	<string name="add_button_text">Add to Buffer</string>
