@@ -40,6 +40,7 @@ public class Add extends Activity {
 			text = convertTextFromTweetDeck(text);
 			text = convertTextFromTwidroyd(text);
 			text = convertTextFromTwitter(text);
+			text = convertTextFromSeesmic(text);
 			urlParams = urlParamsFromTextAndSubject(text, subject);
 		}
 		webView.loadUrl(url + urlParams);
@@ -75,6 +76,16 @@ public class Add extends Activity {
 		if (text.contains(") has shared a Tweet with you:")) {
 			text = text.substring(text.indexOf("\"")+1, text.length());
 			text = text.substring(0, text.indexOf("\"\n--http://twitter.com/"));
+			text = "RT @" + text;
+		}
+		return text;
+	}
+
+	public String convertTextFromSeesmic(String text) {
+		if (text.contains("Sent via Seesmic")) {
+			text = text.substring(text.indexOf("(")+1, text.length());
+			text = text.replaceFirst("\\):", ": ");
+			text = text.substring(0, text.indexOf("\n\nhttp://twitter.com/"));
 			text = "RT @" + text;
 		}
 		return text;
