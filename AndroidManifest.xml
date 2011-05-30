@@ -15,7 +15,7 @@
 
         <activity android:name=".Add"
         	android:label="@string/add_title"
-        	android:configChanges="orientation">
+        	android:configChanges="orientation|keyboardHidden">
         </activity>
 
     </application>
