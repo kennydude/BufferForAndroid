@@ -32,6 +32,10 @@ public class Add extends Activity {
 		String text = intent.getStringExtra(Intent.EXTRA_TEXT);
 		String url = "http://bufferapp.com/add";
 		if (text != null) {
+			if (text.contains("Sent via TweetDeck")) {
+				text = text.substring(0, text.indexOf("Original Tweet"));
+				text = "RT @" + text;
+			}
 			url += "?text=" + text;
 		}
 		webView.loadUrl(url);
