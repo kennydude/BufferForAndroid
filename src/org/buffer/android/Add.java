@@ -30,8 +30,11 @@ public class Add extends Activity {
 
 		Intent intent = getIntent();
 		String text = intent.getStringExtra(Intent.EXTRA_TEXT);
-
-		webView.loadUrl("http://bufferapp.com/add?text=" + text);
+		String url = "http://bufferapp.com/add";
+		if (text != null) {
+			url += "?text=" + text;
+		}
+		webView.loadUrl(url);
 	}
 
 	@Override
