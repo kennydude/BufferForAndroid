@@ -30,34 +30,41 @@ public class Add extends Activity {
 
 		Intent intent = getIntent();
 		String text = intent.getStringExtra(Intent.EXTRA_TEXT);
+		String subject = intent.getStringExtra(Intent.EXTRA_SUBJECT);
+
 		String url = "http://bufferapp.com/add";
+		String urlParams = "";
+
 		if (text != null) {
-			// Handle tweetdeck retweeting
-			if (text.contains("Sent via TweetDeck")) {
-				text = text.substring(0, text.indexOf("Original Tweet"));
-				text = "RT @" + text;
-			}
-
-			// If text is entirely a URL we can pass it to Buffer as such
-			if (text.matches("^http://\\S+$")) {
-				url += "?url=" + text;
-				// In this case, it's likely the page title is shared in the subject!
-				text = intent.getStringExtra(Intent.EXTRA_SUBJECT);
-				if (text != null) {
-					url += "&text=" + text;
-				}
-			}
-
-			// Otherwise, just pass the text we have
-			else {
-				url += "?text=" + text;
-			}
+			text = convertTextFromTweetDeck(text);
+			urlParams = urlParamsFromTextAndSubject(text, subject);
 		}
-		webView.loadUrl(url);
+		webView.loadUrl(url + urlParams);
 	}
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
+	}
+
+	public String convertTextFromTweetDeck(String text) {
+		if (text.contains("Sent via TweetDeck")) {
+			text = text.substring(0, text.indexOf("Original Tweet"));
+			text = "RT @" + text;
+		}
+		return text;
+	}
+
+	public String urlParamsFromTextAndSubject(String text, String subject) {
+		String urlParams = "";
+		if (text.matches("^http://\\S+$")) {
+			urlParams = "?url=" + text;
+			if (subject != null) {
+				urlParams += "&text=" + subject;
+			}
+		} else {
+			urlParams = "?text=" + text;
+		}
+		return urlParams;
 	}
 }
