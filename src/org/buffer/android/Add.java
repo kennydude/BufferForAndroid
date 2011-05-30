@@ -67,6 +67,7 @@ public class Add extends Activity {
 	public String convertTextFromTwidroyd(String text) {
 		if (text.contains("--\nshared via Twidroyd")) {
 			text = text.substring(0, text.indexOf("--\nshared via Twidroyd"));
+			text = text.replaceFirst(":", ": ");
 			text = "RT " + text;
 		}
 		return text;
