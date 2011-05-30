@@ -3,6 +3,7 @@ package org.buffer.android;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Window;
 import android.webkit.WebChromeClient;
@@ -72,12 +73,12 @@ public class Add extends Activity {
 	public String urlParamsFromTextAndSubject(String text, String subject) {
 		String urlParams = "";
 		if (looksLikeURL(text)) {
-			urlParams = "?url=" + text;
+			urlParams = "?url=" + Uri.encode(text);
 			if (subject != null) {
-				urlParams += "&text=" + subject;
+				urlParams += "&text=" + Uri.encode(subject);
 			}
 		} else {
-			urlParams = "?text=" + text;
+			urlParams = "?text=" + Uri.encode(text);
 		}
 		return urlParams;
 	}
