@@ -57,7 +57,7 @@ public class Add extends Activity {
 
 	public String urlParamsFromTextAndSubject(String text, String subject) {
 		String urlParams = "";
-		if (text.matches("^http://\\S+$")) {
+		if (looksLikeURL(text)) {
 			urlParams = "?url=" + text;
 			if (subject != null) {
 				urlParams += "&text=" + subject;
@@ -66,5 +66,9 @@ public class Add extends Activity {
 			urlParams = "?text=" + text;
 		}
 		return urlParams;
+	}
+
+	public Boolean looksLikeURL(String text) {
+		return text.matches("^http://\\S+$");
 	}
 }
