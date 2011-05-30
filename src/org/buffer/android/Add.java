@@ -37,6 +37,7 @@ public class Add extends Activity {
 
 		if (text != null) {
 			text = convertTextFromTweetDeck(text);
+			text = convertTextFromTwidroyd(text);
 			urlParams = urlParamsFromTextAndSubject(text, subject);
 		}
 		webView.loadUrl(url + urlParams);
@@ -51,6 +52,14 @@ public class Add extends Activity {
 		if (text.contains("Sent via TweetDeck")) {
 			text = text.substring(0, text.indexOf("Original Tweet"));
 			text = "RT @" + text;
+		}
+		return text;
+	}
+
+	public String convertTextFromTwidroyd(String text) {
+		if (text.contains("--\nshared via Twidroyd")) {
+			text = text.substring(0, text.indexOf("--\nshared via Twidroyd"));
+			text = "RT " + text;
 		}
 		return text;
 	}
