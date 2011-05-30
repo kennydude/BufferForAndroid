@@ -39,6 +39,7 @@ public class Add extends Activity {
 		if (text != null) {
 			text = convertTextFromTweetDeck(text);
 			text = convertTextFromTwidroyd(text);
+			text = convertTextFromTwitter(text);
 			urlParams = urlParamsFromTextAndSubject(text, subject);
 		}
 		webView.loadUrl(url + urlParams);
@@ -66,6 +67,15 @@ public class Add extends Activity {
 		if (text.contains("--\nshared via Twidroyd")) {
 			text = text.substring(0, text.indexOf("--\nshared via Twidroyd"));
 			text = "RT " + text;
+		}
+		return text;
+	}
+
+	public String convertTextFromTwitter(String text) {
+		if (text.contains(") has shared a Tweet with you:")) {
+			text = text.substring(text.indexOf("\"")+1, text.length());
+			text = text.substring(0, text.indexOf("\"\n--http://twitter.com/"));
+			text = "RT @" + text;
 		}
 		return text;
 	}
