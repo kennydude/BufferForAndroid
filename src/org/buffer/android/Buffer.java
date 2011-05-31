@@ -21,7 +21,6 @@ public class Buffer extends Activity implements OnClickListener {
 		quitButton.setOnClickListener(this);
 	}
 
-	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.add_button:

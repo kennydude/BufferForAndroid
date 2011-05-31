@@ -43,6 +43,8 @@ public class Add extends Activity {
 			text = convertTextFromSeesmic(text);
 			urlParams = urlParamsFromTextAndSubject(text, subject);
 		}
+		if(urlParams != "") urlParams += "&source=android";
+		else urlParams += "?source=android";
 		webView.loadUrl(url + urlParams);
 	}
 
