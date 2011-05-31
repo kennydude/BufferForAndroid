@@ -108,6 +108,6 @@ public class Add extends Activity {
 	}
 
 	public Boolean looksLikeURL(String text) {
-		return text.matches("^http://\\S+$");
+		return text.matches("^https?://\\S+$");
 	}
 }
